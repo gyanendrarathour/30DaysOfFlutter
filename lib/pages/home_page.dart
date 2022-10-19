@@ -9,12 +9,10 @@ class HomePage extends StatelessWidget {
     String name = 'Gyanendra Singh';
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calalog App'),
+        title: const Text('Calalog App'),
       ),
-      body: Container(
-        child: Center(child: Text('Welcome to $days days of Flutter by $name')),
-      ),
-      drawer: Drawer(),
+      body: Center(child: Text('Welcome to $days days of Flutter by $name')),
+      drawer: const Drawer(),
     );
   }
 }
