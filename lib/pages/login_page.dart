@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SafeArea(
+    return SafeArea(
+      child: Material(
+        color: Colors.white,
         child: Column(
           children: [
             Image.asset(

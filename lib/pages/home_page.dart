@@ -5,13 +5,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int days = 30;
     String name = 'Gyanendra Singh';
     return Scaffold(
       appBar: AppBar(
         title: const Text('Calalog App'),
       ),
-      body: Center(child: Text('Welcome to $days days of Flutter by $name')),
+      body: Center(child: Text('Welcome to Home Demo Page designed by $name')),
       drawer: const Drawer(),
     );
   }
