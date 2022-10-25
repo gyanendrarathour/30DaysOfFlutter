@@ -23,11 +23,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   getData() async {
+    await Future.delayed(Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString('assets/files/catalog.json');
     final decodedData = jsonDecode(catalogJson);
     var productData = decodedData['products'];
-    print(productData);
+    CatalogModel.items =
+        List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
+    setState(() {});
   }
 
   @override
@@ -38,11 +41,13 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-            itemCount: CatalogModel.items.length,
-            itemBuilder: (context, index) {
-              return ItemWidget(item: CatalogModel.items[index]);
-            }),
+        child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel.items!.length,
+                itemBuilder: (context, index) {
+                  return ItemWidget(item: CatalogModel.items![index]);
+                })
+            : const Center(child: CircularProgressIndicator()),
       ),
       drawer: const MyDrawer(),
     );
